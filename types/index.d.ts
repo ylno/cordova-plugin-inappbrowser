@@ -6,7 +6,7 @@
 // Copyright (c) Microsoft Open Technologies Inc
 // Licensed under the MIT license.
 // TypeScript Version: 2.3
-type channel = "loadstart" | "loadstop" | "loaderror" | "exit" | "message";
+type channelx = "loadstart" | "loadstop" | "loaderror" | "exit" | "message";
 
 interface Window {
     /**
@@ -17,8 +17,9 @@ interface Window {
      *                 The options string must not contain any blank space, and each feature's
      *                 name/value pairs must be separated by a comma. Feature names are case insensitive.
      */
-    open(url: string, target?: string, options?: string): InAppBrowser;
+    open(url: string, target?: string, options?: string): any;
 }
+
 
 /**
  * The object returned from a call to window.open.
@@ -39,7 +40,7 @@ interface InAppBrowser extends Window {
      * @param callback  the function that executes when the event fires. The function is
      *                  passed an InAppBrowserEvent object as a parameter.
      */
-    addEventListener(type: channel, callback: InAppBrowserEventListenerOrEventListenerObject): void;
+    addEventListener(type: any, callback: InAppBrowserEventListenerOrEventListenerObject): void;
     // removeEventListener overloads
     /**
      * Removes a listener for an event from the InAppBrowser.
@@ -51,7 +52,7 @@ interface InAppBrowser extends Window {
      * @param callback  the function that executes when the event fires. The function is
      *                  passed an InAppBrowserEvent object as a parameter.
      */
-    removeEventListener(type: channel, callback: InAppBrowserEventListenerOrEventListenerObject): void;
+    removeEventListener(type: channelx, callback: InAppBrowserEventListenerOrEventListenerObject): void;
     /** Closes the InAppBrowser window. */
     close(): void;
     /** Hides the InAppBrowser window. Calling this has no effect if the InAppBrowser was already hidden. */
